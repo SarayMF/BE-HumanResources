@@ -21,18 +21,20 @@ public class EmployeeModel {
     private String surnames;
     
     @Column(name = "employee_birth", nullable = false)
-    private Date birth;
+    private String birth;
     
     @Column(name = "employee_email", length = 100, nullable = false)
     private String email;
     
-    @Column(name = "employee_phoneNumber", length = 12, nullable = false)
-    private String phoneNumber;
+    @Column(name = "employee_phone_number", length = 20, nullable = false)
+    private String phone_number;
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_contractType", nullable = false)
-    private ContractTypeModel contractType;
-    private boolean isActive;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "employee_contract_type", nullable = false)
+    private ContractTypeModel contract_type;
+    
+    @Column(name = "employee_active", nullable = false)
+    private boolean active;
 
     public int getId() {
         return id;
@@ -58,11 +60,11 @@ public class EmployeeModel {
         this.surnames = surnames;
     }
 
-    public Date getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
     
@@ -75,28 +77,29 @@ public class EmployeeModel {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone_number;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phoneNumber;
     }
 
     public ContractTypeModel getContractType() {
-        return contractType;
+        return contract_type;
     }
 
     public void setContractType(ContractTypeModel contractType) {
-        this.contractType = contractType;
+        this.contract_type = contractType;
     }
 
-    public boolean isIsActive() {
-        return isActive;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setActive(boolean active) {
+        this.active = active;
     }
+    
     
     
 }
