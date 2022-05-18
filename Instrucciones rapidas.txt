@@ -1,0 +1,22 @@
+En la documentacion de swagger se puede observar los metodos y los json que son
+correspondientes a cada metodo.
+Documentacion con swagger en la url: http://localhost:8080/swagger-ui.html
+
+Estos dos endpoints regresan un json de los empleados
+Para ver los empleados activos en la url: http://localhost:8080/employee metodo GET
+Para ver un empleado por id en la url: http://localhost:8080/employee/{id} metodo GET
+
+El endpoint de post cuando se hace una insercion correcta de un empleado
+regresa el json de ese empleado, si encuentra un email registrado igual
+no se hace la insercion y se regresa un json vacio, con la misma url, si
+se envia el id se hace la modificacion, pero al ser email 'repetido' no
+se hace la modificacion a menos que el correo sea el que se modifique.
+URL: http://localhost:8080/employee metodo POST
+
+En el borrado de empleados, se hace de manera logica, aunque no encuentre empleado
+por id, se muestra el mensaje de exito, esto no lo pude arreglar
+URL: http://localhost:8080/employee/{id} metodo DELETE
+
+La base de datos se debe encontrar en SQLServer, debido a que el driver es
+de SQLServer, tiene que tener el nombre MethaphorceBd, los registros en la tabla
+contract_type se tienen que hacer manuales.

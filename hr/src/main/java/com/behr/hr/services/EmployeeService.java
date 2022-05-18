@@ -33,8 +33,14 @@ public class EmployeeService {
         else return new EmployeeModel();
     }
     
-    public void updateEmployee(int id){
-        employeeRepository.deleteEmployeeById(id);
+    public Boolean deleteEmployee(int id){
+        boolean band=true;
+        try{
+            employeeRepository.deleteEmployeeById(id);
+            return true;
+        }catch(Exception err){
+        }
+        return band;
     }
     
 }

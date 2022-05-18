@@ -6,8 +6,7 @@ package com.behr.hr.repositories;
 
 import com.behr.hr.models.EmployeeModel;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
